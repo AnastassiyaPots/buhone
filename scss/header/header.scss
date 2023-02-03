@@ -1,0 +1,117 @@
+.header {
+    padding: 34px 0px;
+
+    .wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 30px;
+    }
+
+    .header__navigation {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        row-gap: 22px;
+        flex-wrap: wrap;
+        flex-shrink: 0;
+    }
+
+    .header__info {
+        
+        ul {
+            display: flex;
+            gap: 16px 40px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+
+           li {
+                display: flex;
+                column-gap: 15px;
+
+                div {
+                    display: flex; 
+                }
+           }
+        } 
+    }
+        
+
+    &__logo {
+        
+        flex-shrink: 0;
+        width: 222px;
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__nav {
+        ul {
+            display: flex;
+            gap: 16px 68px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+
+    &__item {
+        text-transform: uppercase;
+        font-weight: $bold;
+        letter-spacing: 0.1em;
+        font-size: 14px;
+    }
+
+}
+
+.header {
+     
+    @media (max-width: $tablet) {
+
+        .wrapper {
+            flex-direction: column;
+            row-gap: 34px;
+    }
+
+        &__info {
+            ul {
+                display: flex;
+                justify-content: center;
+            }  
+        }
+
+        &__nav {
+            ul {
+                display: flex;
+                justify-content: center;
+            }  
+        }
+    }
+
+
+    @media (max-width: $mobile) {
+
+       &__navigation { /* не работает? */
+            flex-direction: column-reverse;
+       }
+
+        &__info {
+            ul {
+                display: flex;
+                flex-direction: column;
+            } 
+        }
+
+        &__nav {
+            ul {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+}
