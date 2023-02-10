@@ -1,0 +1,124 @@
+.specialization {
+    background-color: $color-background;
+
+    padding: 170px 0;
+
+    .wrapper {
+        @include flexColumn;
+        row-gap: 102px;
+    }
+
+    &__header {
+        @include flexColumn;
+        row-gap: 40px;
+
+        p {
+            @include grayText;
+        }
+
+        h2 {
+            @include fontSizeHeader;
+        }
+    }
+
+    &__gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+    }
+
+    &__item { 
+        aspect-ratio: 1 / 1;  
+        position: relative;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            
+        }
+
+        &:before  {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0%, 0%, 0%, 65%);
+            transition: .4s;
+        }
+
+        &:after {
+            content: "Бухгалтерское обслуживание";
+            font-size: 24px;
+            color: $color-white;
+            font-weight: $bold;
+            position: absolute;
+            top: 261px;
+            left: 45px;
+            display: inline-block;
+        }
+
+        &:hover {
+            &:before {
+                background-color: rgba(0%, 37%, 64%, 65%);;
+            }
+        }
+    }
+}
+
+.specialization {
+    @media (min-width: 1121px) {
+        h2 {
+            font-size: 48px;
+        } 
+    }
+
+    @media (max-width: $wrapper-width) and (min-width: 321px) {
+        @include fontSizeHeader;
+    }
+
+    @media (max-width: 370px) {
+        &__item {
+            aspect-ratio: 1 / 1; 
+            
+            &:after {
+                top: 180px; 
+                left: 75px;
+                font-size: 20px;
+            }
+        }
+    }
+
+    @media (max-width: $mobile) {
+        padding: 70px 0;
+
+        .wrapper {
+            row-gap: 50px;
+        }
+
+        &__header {
+           @include flexColumnCenter; 
+
+           h2 {
+            font-size: 24px;
+            text-align: center;
+            }
+
+            p {
+                font-size: 20px;
+            }
+        }
+
+        &__gallery {
+            grid-template-columns: 1fr;
+        }
+
+        &__item {
+            aspect-ratio: 1 / 1; 
+        }
+    }
+}

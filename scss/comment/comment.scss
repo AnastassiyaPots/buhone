@@ -11,9 +11,7 @@
         row-gap: 40px;
 
         p {
-            color: $color-text-title;
-            font-size: 24px;
-            font-weight: $bold;
+            @include grayText;
         }
     }
 
@@ -79,14 +77,28 @@
 
     @media (max-width: $mobile) {
 
-        padding: 70px 0 70px;
+        padding: 35px 0;
+
+        .wrapper {
+            @include flexColumnCenter; 
+            row-gap: 50px;
+        }
+
+        &__header {
+            @include flexColumnCenter; 
+
+            h2 {
+                font-size: 24px;
+                text-align: center;
+            }
+
+            p {
+                font-size: 20px;
+            }
+        }
 
         &__conteiner {
             padding: 22.5px 47.5px;
-        }
-
-        h2 {
-            font-size: 30px;
         }
 
         &__conteiner {
@@ -94,12 +106,13 @@
         }
 
         &__box {
-            flex-direction: column;
+            @include flexColumnCenter;
             row-gap: 15px;
         }
 
         &__text {
             font-size: 16px;
+            text-align: center;
         }
     }
 }

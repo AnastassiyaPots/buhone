@@ -141,7 +141,7 @@ h2 {
 }
 
 .first {
-  background-image: url("../../images/first.jpg");
+  background-image: url("../images/first.jpg");
   max-width: 100%;
   height: 680px;
   background-repeat: no-repeat;
@@ -149,26 +149,36 @@ h2 {
   background-size: cover;
   padding: 170px 0 0;
 }
+.first .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  row-gap: 80px;
+}
 .first .wrapper h1 {
-  max-width: 36.25rem;
-  font-size: calc(30px + 1.6071428571vw);
+  max-width: 45.25rem;
+  font-size: calc(24px + 2.1428571429vw);
 }
-.first .wrapper .button {
-  margin-top: 80px;
-}
+
 @media (min-width: 1121px) {
-  .first .wrapper h1 {
+  .first h1 {
     font-size: 48px;
   }
 }
 @media (max-width: 1120px) and (min-width: 321px) {
-  .first .wrapper {
-    font-size: calc(30px + 1.6071428571vw);
+  .first {
+    font-size: calc(24px + 2.1428571429vw);
   }
 }
 @media (max-width: 576px) {
-  .first .wrapper h1 {
-    font-size: 30px;
+  .first .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .first h1 {
+    font-size: 24px;
+    text-align: center;
   }
 }
 
@@ -184,6 +194,117 @@ h2 {
 }
 .button:hover {
   background-color: #035996;
+}
+
+.specialization {
+  background-color: #EBEBEB;
+  padding: 170px 0;
+}
+.specialization .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  row-gap: 102px;
+}
+.specialization__header {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  row-gap: 40px;
+}
+.specialization__header p {
+  color: #BDBDBD;
+  font-size: 24px;
+  font-weight: 700;
+}
+.specialization__header h2 {
+  font-size: calc(24px + 2.1428571429vw);
+}
+.specialization__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+}
+.specialization__item {
+  aspect-ratio: 1/1;
+  position: relative;
+}
+.specialization__item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.specialization__item:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  transition: 0.4s;
+}
+.specialization__item:after {
+  content: "Бухгалтерское обслуживание";
+  font-size: 24px;
+  color: #FFFFFF;
+  font-weight: 700;
+  position: absolute;
+  top: 261px;
+  left: 45px;
+  display: inline-block;
+}
+.specialization__item:hover:before {
+  background-color: rgba(0, 94, 163, 0.65);
+}
+
+@media (min-width: 1121px) {
+  .specialization h2 {
+    font-size: 48px;
+  }
+}
+@media (max-width: 1120px) and (min-width: 321px) {
+  .specialization {
+    font-size: calc(24px + 2.1428571429vw);
+  }
+}
+@media (max-width: 370px) {
+  .specialization__item {
+    aspect-ratio: 1/1;
+  }
+  .specialization__item:after {
+    top: 180px;
+    left: 75px;
+    font-size: 20px;
+  }
+}
+@media (max-width: 576px) {
+  .specialization {
+    padding: 70px 0;
+  }
+  .specialization .wrapper {
+    row-gap: 50px;
+  }
+  .specialization__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .specialization__header h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+  .specialization__header p {
+    font-size: 20px;
+  }
+  .specialization__gallery {
+    grid-template-columns: 1fr;
+  }
+  .specialization__item {
+    aspect-ratio: 1/1;
+  }
 }
 
 .comment {
@@ -257,33 +378,52 @@ h2 {
 }
 @media (max-width: 1120px) and (min-width: 321px) {
   .comment {
-    font-size: calc(30px + 1.6071428571vw);
+    font-size: calc(24px + 2.1428571429vw);
     font-size: calc(16px + 0.1785714286vw);
   }
 }
 @media (max-width: 576px) {
   .comment {
-    padding: 70px 0 70px;
+    padding: 35px 0;
+  }
+  .comment .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 50px;
+  }
+  .comment__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .comment__header h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+  .comment__header p {
+    font-size: 20px;
   }
   .comment__conteiner {
     padding: 22.5px 47.5px;
-  }
-  .comment h2 {
-    font-size: 30px;
   }
   .comment__conteiner {
     row-gap: 29px;
   }
   .comment__box {
+    display: flex;
     flex-direction: column;
+    align-items: center;
     row-gap: 15px;
   }
   .comment__text {
     font-size: 16px;
+    text-align: center;
   }
 }
 
 .footer {
+  background-color: #EBEBEB;
   padding: 40px 0px 50px;
 }
 .footer .wrapper {
